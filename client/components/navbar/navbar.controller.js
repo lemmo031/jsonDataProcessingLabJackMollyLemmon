@@ -8,7 +8,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       'link': '/'
       },
       {'title': 'Student',
-      'link': '/student'
+      'link': '/studentList'
       }];
 
     $scope.isCollapsed = true;
