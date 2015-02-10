@@ -6,7 +6,7 @@
 - Use the generator to generate your project (see below).
 - Make sure your applications is called "student". 
 - Move the seed.js into your config directory. 
-- Make sure that your .gitignore contains the .idea, mongo.js, etc. Use past .gitignore for reference. 
+- Make sure that your .gitignore contains the .idea, /server/config/environment/production.js, etc. Use past .gitignore for reference. 
 - Once you have checked your .gitignore, add your project to the repsoitory and commit. 
 - You will be using your test database (just like we did last time). You will be using a read-only access on a different database for your production code. 
 
@@ -28,7 +28,7 @@ Run: ``yo`` in your project's main directory...
 - Use Socket.io = ``yes``
 
 ## Sample data
-You are provided with sample data that can be used to initialize your test database. Place this file into the config directory (next to mongo.js), and it will be used to seed your database.
+You are provided with sample data that can be used to initialize your test database. Place this file into the/server/config/environment directory, and it will be used to seed your database.
 
 ## User Stories
 You should add these as issues and milestones on your github repository to help keep track of them.
