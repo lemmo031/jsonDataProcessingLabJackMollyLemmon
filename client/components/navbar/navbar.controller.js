@@ -2,10 +2,14 @@
 
 angular.module('jsonDataProcessingLabJackMollyLemmonApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
+    $scope.menu = [
+      {
       'title': 'Home',
       'link': '/'
-    }];
+      },
+      {'title': 'Student',
+      'link': '/student'
+      }];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
