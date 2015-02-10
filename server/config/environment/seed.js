@@ -59,7 +59,7 @@ Student.find({}).remove(function() {
               "name": "Data Structures",
               "subject": "CSCI",
               "courseNumber": 2101,
-              "credits": 5
+              "c)redits": 5
             },
             "grade": "A"
           },
@@ -93,7 +93,7 @@ Student.find({}).remove(function() {
           {
             "course": {
               "name": "Intermediate French II",
-              "subject": "FREN",whoops.
+              "subject": "FREN",
               "courseNumber": 2002,
               "credits": 4
             },
