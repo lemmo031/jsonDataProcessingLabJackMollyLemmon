@@ -7,7 +7,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       'title': 'Home',
       'link': '/'
       },
-      {'title': 'Student',
+      {'title': 'Students',
       'link': '/studentList'
       }];
 

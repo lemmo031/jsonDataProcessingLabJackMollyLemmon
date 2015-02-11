@@ -10,7 +10,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('studentList', {
-        url: '/',
+        url: '/studentList',
         templateUrl: 'app/studentList/studentList.html',
         controller: 'StudentListCtrl'
       });
