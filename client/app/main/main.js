@@ -1,4 +1,4 @@
-'use strict';
++'use strict';
 
 angular.module('jsonDataProcessingLabJackMollyLemmonApp')
   .config(function ($stateProvider) {
