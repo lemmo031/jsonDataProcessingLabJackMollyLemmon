@@ -610,4 +610,20 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('serveProd', function (target) {
+    grunt.task.run([
+      'clean:server',
+      'env:prod',
+      'concurrent:server',
+      'injector',
+      'wiredep',
+      'autoprefixer',
+      'express:dev',
+      'wait',
+      'open',
+      'watch'
+    ]);
+  });
+
 };
