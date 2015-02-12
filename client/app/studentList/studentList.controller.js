@@ -12,6 +12,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
+      console.log("Hello There")
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
 
