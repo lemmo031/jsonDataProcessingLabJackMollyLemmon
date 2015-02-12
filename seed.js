@@ -93,7 +93,7 @@ Student.find({}).remove(function() {
           {
             "course": {
               "name": "Intermediate French II",
-              "subject": "FREN",whoops.
+              "subject": "FREN",
               "courseNumber": 2002,
               "credits": 4
             },
