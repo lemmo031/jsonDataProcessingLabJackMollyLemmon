@@ -11,7 +11,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     $scope.awesomeStudents = [];
 
     $http.get('/api/students').success(function(awesomeStudents) {
-      $scope.awesomeStudents = awesomeThings;
+      $scope.awesomeStudents = awesomeStudents;
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
 
