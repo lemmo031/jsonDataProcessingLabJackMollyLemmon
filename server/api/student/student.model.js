@@ -8,11 +8,17 @@ var mongoose = require('mongoose'),
 
 var StudentSchema = new Schema({
 
-  //need to create the student model from our existing seed.
+  firstName: String,
+  lastName: String,
+  dateOfBirth: String,
+  gender: String,
+  email: String,
+  phone: String,
+  address: String,
+  courses: [],
+  major1: String,
+  major2: String
 
-  //name: String,
-  //info: String,
-  //active: Boolean
 });
 
 module.exports = mongoose.model('Student', StudentSchema);
