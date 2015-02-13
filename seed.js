@@ -5,7 +5,7 @@
 
 'use strict';
 
-var Student = require('../api/student/student.model');
+var Student = require('../server/api/student/student.model.js');
 
 Student.find({}).remove(function() {
   Student.create(

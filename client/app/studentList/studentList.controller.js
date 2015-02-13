@@ -8,19 +8,19 @@
 
 angular.module('jsonDataProcessingLabJackMollyLemmonApp')
   .controller('StudentListCtrl', function ($scope, $http, socket) {
-    $scope.firstName = "Lemmon";
 
     $scope.awesomeStudents = [];
 
     $scope.returnName = function(){
-      return $scope.firstName;
+      return $scope.awesomeStudents[0].firstName;
     };
-    //$http.get('/api/students').success(function(awesomeStudents) {
-    //  $scope.awesomeStudents = awesomeStudents;
-    //  console.log("Hello There")
-    //  socket.syncUpdates('student', $scope.awesomeStudents);
-    //});
-    //
+
+    $http.get('/api/students').success(function(awesomeStudents) {
+      $scope.awesomeStudents = awesomeStudents;
+      console.log("Hello There")
+      socket.syncUpdates('student', $scope.awesomeStudents);
+    });
+
     //$scope.addThing = function() {
     //  if($scope.newStudent === '') {
     //    return;
@@ -28,12 +28,12 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     //  $http.post('/api/students', { firstName: $scope.newStudent });
     //  $scope.newStudent = '';
     //};
-    //
+
     //$scope.deleteThing = function(student) {
     //  $http.delete('/api/students/' + student._id);
     //};
-    //
-    //$scope.$on('$destroy', function () {
-    //  socket.unsyncUpdates('student');
-    //});
+
+    $scope.$on('$destroy', function () {
+      socket.unsyncUpdates('student');
+    });
   });
