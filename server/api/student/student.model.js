@@ -15,7 +15,7 @@ var StudentSchema = new Schema({
   email: String,
   phone: String,
   address: String,
-  //courses: [],
+  courses: [],
   major1: String,
   major2: String
 
