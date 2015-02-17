@@ -13,14 +13,15 @@
  Objects and classes like; thing in awesomeThings, the remover, etc.-->
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in awesomeStudents">
-        <li><a href="#">{{student.lastName}}, {{student.firstName}}</a></li>&ndash;&gt;
-      </ul>
-    </div>
-  </div>
+  <li class="list-group-item" ng-repeat="student in awesomeStudents"><a href="#">Name: {{student.lastName}}, {{student.firstName}}. Date of Birth: {{student.dateOfBirth}}. GPA: 4.0. Credits completed: 25. Major 1: {{student.major1}}. Major 2: {{student.major2}}. Year: Senior</a></li>
+  <!--<div class="row">-->
+    <!--<div class="col-lg-12">-->
+      <!--<h1 class="page-header">Students:</h1>-->
+      <!--<ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in awesomeStudents">-->
+        <!--<li class="list-group-item"><a href="#">{{student.lastName}}, {{student.firstName}}</a></li>&ndash;&gt;-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
 <!--we don't plagiarize-->
 <footer class="footer">
