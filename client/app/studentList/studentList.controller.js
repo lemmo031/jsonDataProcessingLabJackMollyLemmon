@@ -37,6 +37,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
+      $scope.awesomeStudents.sort($scope.compareLastName);
       console.log("Hello There");
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
@@ -56,4 +57,10 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('student');
     });
+
+
+
+    $scope.compareLastName = function(student1, student2) {
+      return student1.lastName.localeCompare(student2.lastName);
+    }
   });
