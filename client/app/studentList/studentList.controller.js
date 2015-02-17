@@ -11,20 +11,6 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.awesomeStudents = [];
 
-    $scope.lastNameSort = function(){
-      var newAwesomeArray = [];
-      var i = 0;
-      var j = 0;
-      var stud = $scope.awesomeStudents[0].lastName;
-      for(i = 0; i < $scope.awesomeStudents.length; i++){
-        if ($scope.awesomeStudents[i].lastName < stud){
-          stud = $scope.awesomeStudents[i].lastName
-        }
-      }
-      return stud;
-    };
-
-
     $scope.convertToGradeNumber = function(grade){
       grade.toString();
       switch (grade){
