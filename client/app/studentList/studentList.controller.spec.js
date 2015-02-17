@@ -24,13 +24,20 @@ describe('Testing controller: StudentListCtrl', function(){
     });
  }));
 
-  it('testing compareName', function(){
+  it('testing compareName on people with identical last names', function(){
     var student1 = {"firstName": "Love",
       "lastName": "Roberts"};
     var student2 = {"firstName": "Olaf",
       "lastName": "Roberts"};
     expect(scope.compareName(student1, student2)).toEqual(-1);
-    //expect(-1).toEqual(-1);
+  });
+
+  it('testing compareName on people with identical names', function(){
+    var student1 = {"firstName": "Love",
+      "lastName": "Roberts"};
+    var student2 = {"firstName": "Love",
+      "lastName": "Roberts"};
+    expect(scope.compareName(student1, student2)).toEqual(0);
   });
 
 });
