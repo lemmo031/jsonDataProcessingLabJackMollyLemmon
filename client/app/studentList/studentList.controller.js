@@ -81,6 +81,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
+      $scope.awesomeStudents.sort($scope.compareName);
       console.log("Hello There");
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
@@ -100,4 +101,19 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('student');
     });
+
+
+    $scope.compareName = function(student1, student2) {
+      var lastNameComparison = student1.lastName.localeCompare(student2.lastName);
+      if (lastNameComparison == 0) {
+        return student1.firstName.localeCompare(student2.firstName);
+      }
+      return lastNameComparison;
+    }
+
+    // Implement this soon.
+    //$scope.compareLastNameThenFirstName = function(student1, student2) {
+    //  var lastNameComparison
+    //  return student1.lastName.localeCompare(student2.lastName);
+    //}
   });
