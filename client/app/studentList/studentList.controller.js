@@ -24,15 +24,59 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return stud;
     };
 
+
+    $scope.convertToGradeNumber = function(grade){
+      grade.toString();
+      switch (grade){
+        case "A":
+              return 4.0;
+        case "A-":
+              return 3.7;
+            break;
+        case "B+":
+              return 3.33;
+        case "B":
+              return 3.0;
+        case "B-":
+              return 2.7;
+        case "C+":
+              return 2.3;
+        case "C":
+              return 2.0;
+        case "C-":
+              return 1.7;
+        case "D+":
+              return 1.3;
+        case "D":
+              return 1.0;
+        case "D-":
+              return 0.7;
+        default:
+              return 0;
+      }
+    };
     $scope.GPACalc = function(student){
       var gpa = 0;
       var i = 0;
       var totalCredits = 0;
       var totalGradePoint = 0;
-      for (i = 0; i < student.courses[i]; i++){
-        student.courses[i];
+      for (i = 0; i < student.courses.length; i++){
+        totalCredits =  totalCredits + student.courses[i].course.credits;
+        totalGradePoint = totalGradePoint + (student.courses[i].course.credits * $scope.convertToGradeNumber(student.courses[i].grade));
       }
+      gpa = totalGradePoint / totalCredits;
       return gpa;
+    };
+
+    $scope.successCompletedCredits = function(student){
+      var totalCredits = 0;
+      var i = 0;
+      for (i = 0; i < student.courses.length; i++){
+        if (student.courses[i].grade != "F" || student.courses[i].grade != "IP") {
+          totalCredits = totalCredits + student.courses[i].course.credits;
+        }
+      }
+      return totalCredits;
     };
 
     $http.get('/api/students').success(function(awesomeStudents) {
