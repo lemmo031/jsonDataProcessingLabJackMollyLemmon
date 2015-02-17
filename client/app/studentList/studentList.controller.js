@@ -28,23 +28,30 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return stud;
     };
 
-    $http.get('/api/students').success(function(awesomeStudents) {
-      $scope.awesomeStudents = awesomeStudents;
-      console.log("Hello There");
-      socket.syncUpdates('student', $scope.awesomeStudents);
-    });
-
-    $scope.addThing = function() {
-      if($scope.newStudent === '') {
-        return;
-      }
-      $http.post('/api/students', { firstName: $scope.newStudent });
-      $scope.newStudent = '';
+    $scope.GPACalc = function(){
+      var gpa = 0;
+      return gpa;
     };
 
-    $scope.deleteThing = function(student) {
-      $http.delete('/api/students/' + student._id);
-    };
+
+
+    //$http.get('/api/students').success(function(awesomeStudents) {
+    //  $scope.awesomeStudents = awesomeStudents;
+    //  console.log("Hello There");
+    //  socket.syncUpdates('student', $scope.awesomeStudents);
+    //});
+    //
+    //$scope.addThing = function() {
+    //  if($scope.newStudent === '') {
+    //    return;
+    //  }
+    //  $http.post('/api/students', { firstName: $scope.newStudent });
+    //  $scope.newStudent = '';
+    //};
+    //
+    //$scope.deleteThing = function(student) {
+    //  $http.delete('/api/students/' + student._id);
+    //};
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('student');
