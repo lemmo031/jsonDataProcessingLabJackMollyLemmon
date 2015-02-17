@@ -12,7 +12,20 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     $scope.awesomeStudents = [];
 
     $scope.returnName = function(){
-      return $scope.awesomeStudents[0].firstName;
+      return $scope.awesomeStudents[0].lastName;
+    };
+
+    $scope.lastNameSort = function(){
+      var newAwesomeArray = [];
+      var i = 0;
+      var j = 0;
+      var stud = $scope.awesomeStudents[0].lastName;
+      for(i = 0; i < $scope.awesomeStudents.length; i++){
+        if ($scope.awesomeStudents[i].lastName < stud){
+          stud = $scope.awesomeStudents[i].lastName
+        }
+      }
+      return stud;
     };
 
     $http.get('/api/students').success(function(awesomeStudents) {
@@ -21,17 +34,17 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
 
-    //$scope.addThing = function() {
-    //  if($scope.newStudent === '') {
-    //    return;
-    //  }
-    //  $http.post('/api/students', { firstName: $scope.newStudent });
-    //  $scope.newStudent = '';
-    //};
+    $scope.addThing = function() {
+      if($scope.newStudent === '') {
+        return;
+      }
+      $http.post('/api/students', { firstName: $scope.newStudent });
+      $scope.newStudent = '';
+    };
 
-    //$scope.deleteThing = function(student) {
-    //  $http.delete('/api/students/' + student._id);
-    //};
+    $scope.deleteThing = function(student) {
+      $http.delete('/api/students/' + student._id);
+    };
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('student');
