@@ -40,4 +40,22 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.compareName(student1, student2)).toEqual(0);
   });
 
+  it('testing compareDateOfBirth on identical dates', function(){
+    var student1 = {"dateOfBirth": "1989-01-18"};
+    var student2 = {"dateOfBirth": "1989-01-18"};
+    expect(scope.compareDateOfBirth(student1, student2)).toEqual(0);
+  });
+
+  it('testing compareDateOfBirth when first argument is lesser than the second', function(){
+    var student1 = {"dateOfBirth": "1920-01-18"};
+    var student2 = {"dateOfBirth": "1989-12-31"};
+    expect(scope.compareDateOfBirth(student1, student2)).toEqual(-1);
+  });
+
+  it('testing compareDateOfBirth when first argument is greater than the second', function(){
+    var student1 = {"dateOfBirth": "1989-12-31"};
+    var student2 = {"dateOfBirth": "1920-01-18"};
+    expect(scope.compareDateOfBirth(student1, student2)).toEqual(1);
+  });
+
 });

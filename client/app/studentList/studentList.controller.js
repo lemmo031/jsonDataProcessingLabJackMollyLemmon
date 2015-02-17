@@ -81,7 +81,8 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
-      $scope.awesomeStudents.sort($scope.compareName);
+      //$scope.awesomeStudents.sort($scope.compareName);
+      $scope.awesomeStudents.sort($scope.compareDateOfBirth);
       console.log("Hello There");
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
@@ -108,5 +109,17 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         return student1.firstName.localeCompare(student2.firstName);
       }
       return lastNameComparison;
+    }
+
+    $scope.compareDateOfBirth = function(student1, student2) {
+      var student1DateOfBirth = new Date(student1.dateOfBirth);
+      var student2DateOfBirth = new Date(student2.dateOfBirth);
+      if (student1DateOfBirth < student2DateOfBirth) {
+        return -1;
+      } else if (student1DateOfBirth > student2DateOfBirth) {
+        return 1;
+      } else {
+        return 0;
+      }
     }
   });
