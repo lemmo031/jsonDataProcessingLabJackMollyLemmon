@@ -58,4 +58,23 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.compareDateOfBirth(student1, student2)).toEqual(1);
   });
 
+  it('testing convertToGradeNumber', function(){
+    expect(scope.convertToGradeNumber("A")).toEqual(4.0);
+    expect(scope.convertToGradeNumber("A-")).toEqual(3.667);
+    expect(scope.convertToGradeNumber("B+")).toEqual(3.333);
+    expect(scope.convertToGradeNumber("B")).toEqual(3.0);
+    expect(scope.convertToGradeNumber("B-")).toEqual(2.667);
+    expect(scope.convertToGradeNumber("C+")).toEqual(2.333);
+    expect(scope.convertToGradeNumber("C")).toEqual(2.0);
+    expect(scope.convertToGradeNumber("C-")).toEqual(1.667);
+    expect(scope.convertToGradeNumber("D+")).toEqual(1.333);
+    expect(scope.convertToGradeNumber("D")).toEqual(1.0);
+    expect(scope.convertToGradeNumber("F")).toEqual(0);
+    expect(scope.convertToGradeNumber("IP")).toEqual(0);
+
+    // Just returns 0 for unknown values or lowercase grades
+    expect(scope.convertToGradeNumber("WooHoo")).toEqual(0);
+    expect(scope.convertToGradeNumber("a")).toEqual(0);
+  });
+
 });
