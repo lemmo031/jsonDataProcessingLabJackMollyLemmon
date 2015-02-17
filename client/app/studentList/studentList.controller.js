@@ -31,26 +31,24 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         case "A":
               return 4.0;
         case "A-":
-              return 3.7;
+              return 3.667;
             break;
         case "B+":
-              return 3.33;
+              return 3.333;
         case "B":
               return 3.0;
         case "B-":
-              return 2.7;
+              return 2.667;
         case "C+":
-              return 2.3;
+              return 2.333;
         case "C":
               return 2.0;
         case "C-":
-              return 1.7;
+              return 1.667;
         case "D+":
-              return 1.3;
+              return 1.333;
         case "D":
               return 1.0;
-        case "D-":
-              return 0.7;
         default:
               return 0;
       }
