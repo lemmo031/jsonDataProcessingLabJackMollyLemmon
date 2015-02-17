@@ -28,19 +28,23 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return stud;
     };
 
-    $scope.GPACalc = function(){
+    $scope.GPACalc = function(student){
       var gpa = 0;
+      var i = 0;
+      var totalCredits = 0;
+      var totalGradePoint = 0;
+      for (i = 0; i < student.courses[i]; i++){
+        student.courses[i];
+      }
       return gpa;
     };
 
+    $http.get('/api/students').success(function(awesomeStudents) {
+      $scope.awesomeStudents = awesomeStudents;
+      console.log("Hello There");
+      socket.syncUpdates('student', $scope.awesomeStudents);
+    });
 
-
-    //$http.get('/api/students').success(function(awesomeStudents) {
-    //  $scope.awesomeStudents = awesomeStudents;
-    //  console.log("Hello There");
-    //  socket.syncUpdates('student', $scope.awesomeStudents);
-    //});
-    //
     //$scope.addThing = function() {
     //  if($scope.newStudent === '') {
     //    return;
