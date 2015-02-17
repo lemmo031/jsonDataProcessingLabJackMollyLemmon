@@ -11,10 +11,6 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.awesomeStudents = [];
 
-    $scope.returnName = function(){
-      return $scope.awesomeStudents[0].lastName;
-    };
-
     $scope.lastNameSort = function(){
       var newAwesomeArray = [];
       var i = 0;
