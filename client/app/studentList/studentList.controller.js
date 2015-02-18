@@ -52,6 +52,17 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return gpa;
     };
 
+    $scope.attemptedCredits = function(student){
+      var totalCredits = 0;
+      for (var i = 0; i < student.courses.length; i++){
+        var currentCourse = student.courses[i];
+        if (currentCourse.grade != "IP") {
+          totalCredits += currentCourse.course.credits;
+        }
+      }
+      return totalCredits;
+    };
+
     $scope.successfullyCompletedCredits = function(student){
       var totalCredits = 0;
       for (var i = 0; i < student.courses.length; i++){

@@ -92,7 +92,7 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.successfullyCompletedCredits(student1)).toEqual(5);
   });
 
-  it('testing successfullyCompletedCredits', function(){
+  it('testing successfullyCompletedCredits with IP', function(){
     var student1 =
     {"courses": [
       {
@@ -116,7 +116,7 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.successfullyCompletedCredits(student1)).toEqual(5);
   });
 
-  it('testing successfullyCompletedCredits', function(){
+  it('testing successfullyCompletedCredits with F', function(){
     var student1 =
     {"courses": [
       {
@@ -140,4 +140,51 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.successfullyCompletedCredits(student1)).toEqual(3);
   });
 
+  it('testing attemptedCredits with F', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 3
+        },
+        "grade": "A"
+      },
+      {
+        "course": {
+          "name": "Other",
+          "subject": "CSCI",
+          "courseNumber": 3434,
+          "credits": 8
+        },
+        "grade": "F"
+      }]};
+    expect(scope.attemptedCredits(student1)).toEqual(11);
+  });
+
+  it('testing attemptedCredits with IP', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 4
+        },
+        "grade": "A"
+      },
+      {
+        "course": {
+          "name": "Other",
+          "subject": "CSCI",
+          "courseNumber": 3434,
+          "credits": 2
+        },
+        "grade": "IP"
+      }]};
+    expect(scope.attemptedCredits(student1)).toEqual(4);
+  });
 });
