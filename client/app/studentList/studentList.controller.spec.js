@@ -187,4 +187,40 @@ describe('Testing controller: StudentListCtrl', function(){
       }]};
     expect(scope.attemptedCredits(student1)).toEqual(4);
   });
+
+  it('testing notInProgress', function(){
+    expect(scope.notInProgress("A")).toEqual(true);
+    expect(scope.notInProgress("F")).toEqual(true);
+    expect(scope.notInProgress("IP")).toEqual(false);
+  });
+
+  it('testing isSuccessfullyCompleted', function(){
+    expect(scope.isSuccessfullyCompleted("B")).toEqual(true);
+    expect(scope.isSuccessfullyCompleted("F")).toEqual(false);
+    expect(scope.isSuccessfullyCompleted("IP")).toEqual(false);
+  });
+
+  it('testing countCredits with IP and notInProgress', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 4
+        },
+        "grade": "A"
+      },
+      {
+        "course": {
+          "name": "Other",
+          "subject": "CSCI",
+          "courseNumber": 3434,
+          "credits": 2
+        },
+        "grade": "IP"
+      }]};
+    expect(scope.countCredits(student1, scope.notInProgress)).toEqual(4);
+  });
 });
