@@ -113,7 +113,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         return student1.firstName.localeCompare(student2.firstName);
       }
       return lastNameComparison;
-    }
+    };
 
     $scope.compareDateOfBirth = function(student1, student2) {
       var student1DateOfBirth = new Date(student1.dateOfBirth);
