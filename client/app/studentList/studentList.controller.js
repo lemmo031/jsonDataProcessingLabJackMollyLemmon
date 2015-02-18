@@ -39,19 +39,6 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
               return 0;
       }
     };
-    $scope.GPACalc = function(student){
-      var gpa = 0;
-      var totalCredits = $scope.attemptedCredits(student);
-      var totalGradePoint = 0;
-      for (var i = 0; i < student.courses.length; i++){
-        if ($scope.notInProgress(student.courses[i].course.grade)) {
-          totalCredits = totalCredits + student.courses[i].course.credits;
-          totalGradePoint = totalGradePoint + (student.courses[i].course.credits * $scope.convertToGradeNumber(student.courses[i].grade));
-        }
-      }
-      gpa = totalGradePoint / totalCredits;
-      return gpa;
-    };
 
     $scope.notInProgress = function(grade) {
       return grade != "IP";
@@ -78,6 +65,23 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.successfullyCompletedCredits = function(student){
       return($scope.countCredits(student, $scope.isSuccessfullyCompleted))
+    };
+
+    $scope.GPACalc = function(student){
+      var gpa = 0;
+      var totalCredits = $scope.attemptedCredits(student);
+      var totalGradePoint = 0;
+      var i = 0;
+      for (i = 0; i < student.courses.length; i++){
+        if (student.courses[i].grade != "IP") {
+          var thisGradePoint = $scope.convertToGradeNumber(student.courses[i].grade);
+          var thisCredit = student.courses[i].course.credits;
+          var addedGradePoint = thisGradePoint * thisCredit;
+          totalGradePoint = totalGradePoint + addedGradePoint;
+        }
+      }
+      gpa = totalGradePoint / totalCredits;
+      return gpa;
     };
 
     $http.get('/api/students').success(function(awesomeStudents) {
