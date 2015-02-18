@@ -52,26 +52,31 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return gpa;
     };
 
-    $scope.attemptedCredits = function(student){
+    $scope.notInProgress = function(grade) {
+      return grade != "IP";
+    }
+
+    $scope.isSuccessfullyCompleted = function(grade) {
+      return grade != "F" && grade != "IP";
+    }
+
+    $scope.countCredits = function(student, testingFunction){
       var totalCredits = 0;
       for (var i = 0; i < student.courses.length; i++){
         var currentCourse = student.courses[i];
-        if (currentCourse.grade != "IP") {
+        if (testingFunction(currentCourse.grade)) {
           totalCredits += currentCourse.course.credits;
         }
       }
       return totalCredits;
     };
 
+    $scope.attemptedCredits = function(student){
+      return($scope.countCredits(student, $scope.notInProgress));
+    };
+
     $scope.successfullyCompletedCredits = function(student){
-      var totalCredits = 0;
-      for (var i = 0; i < student.courses.length; i++){
-        var currentCourse = student.courses[i];
-        if (currentCourse.grade != "F" && currentCourse.grade != "IP") {
-          totalCredits += currentCourse.course.credits;
-        }
-      }
-      return totalCredits;
+      return($scope.countCredits(student, $scope.isSuccessfullyCompleted))
     };
 
     $http.get('/api/students').success(function(awesomeStudents) {
