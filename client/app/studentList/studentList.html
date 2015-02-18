@@ -15,7 +15,7 @@
 <div class="container">
   <input type="button" value="Sort by Name" ng-click="sortName()"/>
   <input type="button" value="Sort by Birth" ng-click="sortBirth()"/>
-  <li class="list-group-item" ng-repeat="student in awesomeStudents"><a href="#">Name: {{student.lastName}}, {{student.firstName}}. Date of Birth: {{student.dateOfBirth}}. GPA: {{GPACalc(student)}}. Credits completed: {{successfullyCompletedCredits(student)}}. Major 1: {{student.major1}}. Major 2: {{student.major2}}. Year: Senior</a></li>
+  <li class="list-group-item" ng-repeat="student in awesomeStudents"><a href="#">Name: {{student.lastName}}, {{student.firstName}}. Date of Birth: {{student.dateOfBirth}}. GPA: {{student.gpa}}. Credits completed: {{student.completedCreditsForList}}. Major 1: {{student.major1}}. Major 2: {{student.major2}}. Year: {{student.creditYear}}</a></li>
   <!--<div class="row">-->
     <!--<div class="col-lg-12">-->
       <!--<h1 class="page-header">Students:</h1>-->

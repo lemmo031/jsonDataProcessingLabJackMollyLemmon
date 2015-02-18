@@ -11,35 +11,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.awesomeStudents = [];
 
-    $scope.convertToGradeNumber = function(grade){
-      grade.toString();
-      switch (grade){
-        case "A":
-              return 4.0;
-        case "A-":
-              return 3.667;
-            break;
-        case "B+":
-              return 3.333;
-        case "B":
-              return 3.0;
-        case "B-":
-              return 2.667;
-        case "C+":
-              return 2.333;
-        case "C":
-              return 2.0;
-        case "C-":
-              return 1.667;
-        case "D+":
-              return 1.333;
-        case "D":
-              return 1.0;
-        default:
-              return 0;
-      }
-    };
-
+    //counting credits different ways
     $scope.notInProgress = function(grade) {
       return grade != "IP";
     }
@@ -48,7 +20,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return grade != "F" && grade != "IP";
     }
 
-    $scope.countCredits = function(student, testingFunction){
+    $scope.countCredits = function(student, testingFunction) {
       var totalCredits = 0;
       for (var i = 0; i < student.courses.length; i++){
         var currentCourse = student.courses[i];
@@ -59,15 +31,17 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return totalCredits;
     };
 
-    $scope.attemptedCredits = function(student){
+    $scope.attemptedCredits = function(student) {
       return($scope.countCredits(student, $scope.notInProgress));
     };
 
-    $scope.successfullyCompletedCredits = function(student){
+    $scope.successfullyCompletedCredits = function(student) {
       return($scope.countCredits(student, $scope.isSuccessfullyCompleted));
     };
 
-    $scope.GPACalc = function(student){
+
+    //GPA Calculator
+    $scope.GPACalc = function(student) {
       var gpa = 0;
       var totalCredits = $scope.attemptedCredits(student);
       var totalGradePoint = 0;
@@ -83,18 +57,50 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return gpa;
     };
 
-    $scope.sortName = function(){
+    $scope.convertToGradeNumber = function(grade) {
+      grade.toString();
+      switch (grade){
+        case "A":
+          return 4.0;
+        case "A-":
+          return 3.667;
+          break;
+        case "B+":
+          return 3.333;
+        case "B":
+          return 3.0;
+        case "B-":
+          return 2.667;
+        case "C+":
+          return 2.333;
+        case "C":
+          return 2.0;
+        case "C-":
+          return 1.667;
+        case "D+":
+          return 1.333;
+        case "D":
+          return 1.0;
+        default:
+          return 0;
+      }
+    };
+
+    //sorting calls
+    $scope.sortName = function() {
       console.log("wut up.");
       $scope.awesomeStudents.sort($scope.compareName);
     };
 
-    $scope.sortBirth = function(){
+    $scope.sortBirth = function() {
       console.log("up wut?");
       $scope.awesomeStudents.sort($scope.compareDateOfBirth);
     };
 
+    //made alphabetical standard from opening page.
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
+      $scope.addAllInformation();
       $scope.sortName();
       console.log("Hello There");
       socket.syncUpdates('student', $scope.awesomeStudents);
@@ -116,6 +122,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       socket.unsyncUpdates('student');
     });
 
+    //comparisons for sorts
     $scope.compareName = function(student1, student2) {
       var lastNameComparison = student1.lastName.localeCompare(student2.lastName);
       if (lastNameComparison == 0) {
@@ -152,7 +159,14 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.addInformation = function(student) {
       student.gpa = $scope.GPACalc(student);
-      student.successfullyCompletedCredits = $scope.successfullyCompletedCredits(student);
+      student.completedCreditsForList = $scope.successfullyCompletedCredits(student);
       student.creditYear = $scope.getCreditYear(student.successfullyCompletedCredits);
+    }
+
+    $scope.addAllInformation = function() {
+      for (var i = 0; i < $scope.awesomeStudents.length; i++){
+        $scope.addInformation($scope.awesomeStudents[i]);
+      }
+      console.log("we added probably.")
     }
   });
