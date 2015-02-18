@@ -64,19 +64,18 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     };
 
     $scope.successfullyCompletedCredits = function(student){
-      return($scope.countCredits(student, $scope.isSuccessfullyCompleted))
+      return($scope.countCredits(student, $scope.isSuccessfullyCompleted));
     };
 
     $scope.GPACalc = function(student){
       var gpa = 0;
       var totalCredits = $scope.attemptedCredits(student);
       var totalGradePoint = 0;
-      var i = 0;
-      for (i = 0; i < student.courses.length; i++){
-        if (student.courses[i].grade != "IP") {
-          var thisGradePoint = $scope.convertToGradeNumber(student.courses[i].grade);
-          var thisCredit = student.courses[i].course.credits;
-          var addedGradePoint = thisGradePoint * thisCredit;
+      for (var i = 0; i < student.courses.length; i++){
+        if ($scope.notInProgress(student.courses[i].grade)) {
+          var thisGradeNumber = $scope.convertToGradeNumber(student.courses[i].grade);
+          var theseCredits = student.courses[i].course.credits;
+          var addedGradePoint = (thisGradeNumber * theseCredits);
           totalGradePoint = totalGradePoint + addedGradePoint;
         }
       }
