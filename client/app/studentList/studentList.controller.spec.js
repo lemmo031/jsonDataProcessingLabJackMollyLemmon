@@ -233,7 +233,7 @@ describe('Testing controller: StudentListCtrl', function(){
           "name": "Models of Computing Systems",
           "subject": "CSCI",
           "courseNumber": 3401,
-          "credits": 4
+          "credits": 2
         },
         "grade": "A"
       },
@@ -245,8 +245,77 @@ describe('Testing controller: StudentListCtrl', function(){
           "credits": 2
         },
         "grade": "IP"
+      },
+      {
+        "course": {
+          "name": "Thingy",
+          "subject": "CSCI",
+          "courseNumber": 2234,
+          "credits": 6
+        },
+        "grade": "F"
       }]};
-    expect(scope.GPACalc(student1)).toEqual(4.0);
+    expect(scope.GPACalc(student1)).toEqual(1.0);
   });
+
+  //it('testing addInformation', function(){
+  //  var student =
+  //  {
+  //    // "creditYear": "freshman"
+  //    // "gpa": "4.0"
+  //    // "successfullyCompletedCredits": "100"
+  //    "firstName": "Bob",
+  //    "courses": [
+  //      {
+  //        "course": {
+  //          "name": "Models of Computing Systems",
+  //          "subject": "CSCI",
+  //          "courseNumber": 3401,
+  //          "credits": 5
+  //        },
+  //        "grade": "A"
+  //      },
+  //      {
+  //        "course": {
+  //          "name": "Software Design and Development",
+  //          "subject": "CSCI",
+  //          "courseNumber": 3601,
+  //          "credits": 5
+  //        },
+  //        "grade": "C"
+  //      },
+  //      {
+  //        "course": {
+  //          "name": "PreCalculus I: Functions",
+  //          "subject": "MATH",
+  //          "courseNumber": 1012,
+  //          "credits": 5
+  //        },
+  //        "grade": "F"
+  //      },
+  //      {
+  //        "course": {
+  //          "name": "Beginning Ceramics",
+  //          "subject": "ARTS",
+  //          "courseNumber": 1050,
+  //          "credits": 3
+  //        },
+  //        "grade": "IP"
+  //      }
+  //    ]
+  //  };
+  //
+  //  /*
+  //   This should add these fields to the student object:
+  //   creditYear: "freshman"
+  //   gpa: "2.0"
+  //   successfullyCompletedCredits: "10"
+  //   */
+  //  scope.addInformation(student);
+  //
+  //  expect(student.creditYear).toEqual("freshman");
+  //  expect(student.gpa).toEqual(2.0);
+  //  expect(student.successfullyCompletedCredits).toEqual(10);
+  //});
 
 });
