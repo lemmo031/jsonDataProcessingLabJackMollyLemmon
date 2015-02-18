@@ -272,64 +272,64 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.getCreditYear(300)).toEqual("senior");
   });
 
-  //it('testing addInformation', function(){
-  //  var student =
-  //  {
-  //    // "creditYear": "freshman"
-  //    // "gpa": "4.0"
-  //    // "successfullyCompletedCredits": "100"
-  //    "firstName": "Bob",
-  //    "courses": [
-  //      {
-  //        "course": {
-  //          "name": "Models of Computing Systems",
-  //          "subject": "CSCI",
-  //          "courseNumber": 3401,
-  //          "credits": 5
-  //        },
-  //        "grade": "A"
-  //      },
-  //      {
-  //        "course": {
-  //          "name": "Software Design and Development",
-  //          "subject": "CSCI",
-  //          "courseNumber": 3601,
-  //          "credits": 5
-  //        },
-  //        "grade": "C"
-  //      },
-  //      {
-  //        "course": {
-  //          "name": "PreCalculus I: Functions",
-  //          "subject": "MATH",
-  //          "courseNumber": 1012,
-  //          "credits": 5
-  //        },
-  //        "grade": "F"
-  //      },
-  //      {
-  //        "course": {
-  //          "name": "Beginning Ceramics",
-  //          "subject": "ARTS",
-  //          "courseNumber": 1050,
-  //          "credits": 3
-  //        },
-  //        "grade": "IP"
-  //      }
-  //    ]
-  //  };
-  //
-  //  /*
-  //   This should add these fields to the student object:
-  //   creditYear: "freshman"
-  //   gpa: "2.0"
-  //   successfullyCompletedCredits: "10"
-  //   */
-  //  scope.addInformation(student);
-  //
-  //  expect(student.creditYear).toEqual("freshman");
-  //  expect(student.gpa).toEqual(2.0);
-  //  expect(student.successfullyCompletedCredits).toEqual(10);
-  //});
+  it('testing addInformation', function(){
+    var student =
+    {
+      // "creditYear": "freshman"
+      // "gpa": "4.0"
+      // "successfullyCompletedCredits": "100"
+      "firstName": "Bob",
+      "courses": [
+        {
+          "course": {
+            "name": "Models of Computing Systems",
+            "subject": "CSCI",
+            "courseNumber": 3401,
+            "credits": 5
+          },
+          "grade": "A"
+        },
+        {
+          "course": {
+            "name": "Software Design and Development",
+            "subject": "CSCI",
+            "courseNumber": 3601,
+            "credits": 5
+          },
+          "grade": "C"
+        },
+        {
+          "course": {
+            "name": "PreCalculus I: Functions",
+            "subject": "MATH",
+            "courseNumber": 1012,
+            "credits": 5
+          },
+          "grade": "F"
+        },
+        {
+          "course": {
+            "name": "Beginning Ceramics",
+            "subject": "ARTS",
+            "courseNumber": 1050,
+            "credits": 3
+          },
+          "grade": "IP"
+        }
+      ]
+    };
+
+    /*
+     This should add these fields to the student object:
+     creditYear: "freshman"
+     gpa: "2.0"
+     successfullyCompletedCredits: "10"
+     */
+    scope.addInformation(student);
+
+    expect(student.creditYear).toEqual("freshman");
+    expect(student.gpa).toEqual(2.0);
+    expect(student.successfullyCompletedCredits).toEqual(10);
+  });
 
 });

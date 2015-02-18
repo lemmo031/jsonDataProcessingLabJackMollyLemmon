@@ -149,4 +149,10 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         return "senior";
       }
     }
+
+    $scope.addInformation = function(student) {
+      student.gpa = $scope.GPACalc(student);
+      student.successfullyCompletedCredits = $scope.successfullyCompletedCredits(student);
+      student.creditYear = $scope.getCreditYear(student.successfullyCompletedCredits);
+    }
   });
