@@ -52,12 +52,12 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return gpa;
     };
 
-    $scope.successCompletedCredits = function(student){
+    $scope.successfullyCompletedCredits = function(student){
       var totalCredits = 0;
-      var i = 0;
-      for (i = 0; i < student.courses.length; i++){
-        if (student.courses[i].grade != "F" || student.courses[i].grade != "IP") {
-          totalCredits = totalCredits + student.courses[i].course.credits;
+      for (var i = 0; i < student.courses.length; i++){
+        var currentCourse = student.courses[i];
+        if (currentCourse.grade != "F" && currentCourse.grade != "IP") {
+          totalCredits += currentCourse.course.credits;
         }
       }
       return totalCredits;

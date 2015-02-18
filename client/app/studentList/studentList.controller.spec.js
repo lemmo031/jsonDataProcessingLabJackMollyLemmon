@@ -77,4 +77,67 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.convertToGradeNumber("a")).toEqual(0);
   });
 
+  it('testing successfullyCompletedCredits', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 5
+        },
+        "grade": "A"
+      }]};
+    expect(scope.successfullyCompletedCredits(student1)).toEqual(5);
+  });
+
+  it('testing successfullyCompletedCredits', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 5
+        },
+        "grade": "A"
+      },
+      {
+        "course": {
+          "name": "Other",
+          "subject": "CSCI",
+          "courseNumber": 3434,
+          "credits": 8
+        },
+        "grade": "IP"
+      }]};
+    expect(scope.successfullyCompletedCredits(student1)).toEqual(5);
+  });
+
+  it('testing successfullyCompletedCredits', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 3
+        },
+        "grade": "A"
+      },
+      {
+        "course": {
+          "name": "Other",
+          "subject": "CSCI",
+          "courseNumber": 3434,
+          "credits": 8
+        },
+        "grade": "F"
+      }]};
+    expect(scope.successfullyCompletedCredits(student1)).toEqual(3);
+  });
+
 });
