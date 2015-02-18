@@ -83,10 +83,18 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return gpa;
     };
 
+    $scope.sortName = function(){
+      console.log("wut up.");
+      $scope.awesomeStudents.sort($scope.compareName);
+    };
+
+    $scope.sortBirth = function(){
+      console.log("up wut?");
+      $scope.awesomeStudents.sort($scope.compareDateOfBirth);
+    };
+
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
-      //$scope.awesomeStudents.sort($scope.compareName);
-      $scope.awesomeStudents.sort($scope.compareDateOfBirth);
       console.log("Hello There");
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
