@@ -223,4 +223,30 @@ describe('Testing controller: StudentListCtrl', function(){
       }]};
     expect(scope.countCredits(student1, scope.notInProgress)).toEqual(4);
   });
+
+
+  it('testing GPACalc', function(){
+    var student1 =
+    {"courses": [
+      {
+        "course": {
+          "name": "Models of Computing Systems",
+          "subject": "CSCI",
+          "courseNumber": 3401,
+          "credits": 4
+        },
+        "grade": "A"
+      },
+      {
+        "course": {
+          "name": "Other",
+          "subject": "CSCI",
+          "courseNumber": 3434,
+          "credits": 2
+        },
+        "grade": "IP"
+      }]};
+    expect(scope.GPACalc(student1)).toEqual(4.0);
+  });
+
 });
