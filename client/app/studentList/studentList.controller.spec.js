@@ -258,6 +258,20 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.GPACalc(student1)).toEqual(1.0);
   });
 
+  it('testing getCreditYear', function(){
+    expect(scope.getCreditYear(-5)).toEqual("unknown");
+    expect(scope.getCreditYear(0)).toEqual("freshman");
+    expect(scope.getCreditYear(29)).toEqual("freshman");
+    expect(scope.getCreditYear(30)).toEqual("sophomore");
+    expect(scope.getCreditYear(59)).toEqual("sophomore");
+    expect(scope.getCreditYear(60)).toEqual("junior");
+    expect(scope.getCreditYear(89)).toEqual("junior");
+    expect(scope.getCreditYear(90)).toEqual("senior");
+    expect(scope.getCreditYear(119)).toEqual("senior");
+    expect(scope.getCreditYear(120)).toEqual("senior");
+    expect(scope.getCreditYear(300)).toEqual("senior");
+  });
+
   //it('testing addInformation', function(){
   //  var student =
   //  {

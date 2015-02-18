@@ -134,4 +134,18 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         return 0;
       }
     }
+
+    $scope.getCreditYear = function(successfulCredits) {
+      if (successfulCredits < 0) {
+        return "unknown";
+      } else if (0 <= successfulCredits && successfulCredits < 30) {
+        return "freshman";
+      } else if (30 <= successfulCredits && successfulCredits < 60) {
+        return "sophomore";
+      } else if (60 <= successfulCredits && successfulCredits < 90) {
+        return "junior";
+      } else if (90 <= successfulCredits) {
+        return "senior";
+      }
+    }
   });
