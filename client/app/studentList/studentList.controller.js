@@ -114,6 +114,13 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       return student.major1;
     };
 
+    $scope.displayMajor2 = function(student) {
+      if (student.major2 == null){
+        return "";
+      }
+      return "Major 2: " + student.major2 + ".";
+    };
+
     //made alphabetical standard from opening page.
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
