@@ -16,6 +16,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     //function for changing our unique student
     $scope.changeUnique = function(student){
+      console.log("we're here!")
       $scope.ourUniqueStudent = student;
     }
 
