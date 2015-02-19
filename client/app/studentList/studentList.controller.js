@@ -115,7 +115,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents = awesomeStudents;
       $scope.addAllInformation();
       $scope.sortName();
-      console.log("Information received from database");
+      console.log("Hello There");
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
 
@@ -201,9 +201,9 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     }
 
     $scope.addAllInformation = function() {
-      console.log("Adding student information.")
       for (var i = 0; i < $scope.awesomeStudents.length; i++){
         $scope.addInformation($scope.awesomeStudents[i]);
       }
+      console.log("we added probably.")
     }
   });
