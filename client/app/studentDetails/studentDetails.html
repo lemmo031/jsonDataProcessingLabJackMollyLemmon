@@ -2,15 +2,10 @@
 
 <header id="banner">
   <div class="container">
-    <h1>Love Roberts</h1>
-    <p>Date of Birth: 1989-01-18</p>
-    <p>Gender: Male</p>
-    <p>Email: hi@gmail.com</p>
-    <p>Phone: 320-123-4567</p>
-    <p>Address: Happy Drive</p>
-    <p>Major 1: History</p>
-    <p>Major 2: Art</p>
-    <p>GPA: 4.0</p>
+
+    <h1>Student Details:</h1>
+    <li class="list-group-item" ng-repeat="student in awesomeStudents"><a href="#">{{student.lastName}}, {{student.firstName}}.</a></li>
+
     <!--<div class="container">-->
       <!--<h3>Courses:</h3>-->
       <!--<ul class="list-group">-->
@@ -29,6 +24,18 @@
   </div>
 </header>
 
+<div class="container">
+  <p>Name: Dr. Feelgood</p>
+  <p>Date of Birth: 1989-01-18</p>
+  <p>Gender: Male</p>
+  <p>Email: hi@gmail.com</p>
+  <p>Phone: 320-123-4567</p>
+  <p>Address: Happy Drive</p>
+  <p>Major 1: History</p>
+  <p>Major 2: Art</p>
+  <p>GPA: 4.0</p>
+  <p>Courses: A lot of courses, still making the functions.</p>
+</div>
 
 <!--Some classes need to be changed. We want our info and database list not theirs.
  Objects and classes like; thing in awesomeThings, the remover, etc.-->
