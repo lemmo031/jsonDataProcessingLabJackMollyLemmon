@@ -403,22 +403,4 @@ describe('Testing controller: StudentListCtrl', function(){
   //  var student2 = {"major1": "ENGLISH", "major2": null};
   //  expect(scope.compareMajors(student1, student2)).toEqual(1);
   //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"GPA": 3.5};
-  //  var student2 = {"GPA": 3.2};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"GPA": 1.4};
-  //  var student2 = {"GPA": 3.2};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"GPA": 2.5};
-  //  var student2 = {"GPA": 2.5};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(0);
-  //});
 });
