@@ -22,11 +22,8 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.countCredits = function(student, testingFunction) {
       var totalCredits = 0;
-      console.log(student.firstName);
-      console.log(student.courses.length);
       for (var i = 0; i < student.courses.length; i++){
         var currentCourse = student.courses[i];
-        console.log(currentCourse.course.credits);
         if (testingFunction(currentCourse.grade)) {
           totalCredits += currentCourse.course.credits;
         }
@@ -105,11 +102,6 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents.sort($scope.compareCredits);
     };
 
-    $scope.sortGPA = function() {
-      console.log("Sorting by GPA");
-      $scope.awesomeStudents.sort($scope.compareGPA);
-    };
-
     //made alphabetical standard from opening page.
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
@@ -162,18 +154,6 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       if (student1Credits < student2Credits) {
         return -1;
       } else if (student1Credits > student2Credits) {
-        return 1;
-      } else {
-        return 0;
-      }
-    }
-
-    $scope.compareGPA = function(student1, student2) {
-      var student1GPA = student1.gpa;
-      var student2GPA = student2.gpa;
-      if (student1GPA < student2GPA) {
-        return -1;
-      } else if (student1GPA > student2GPA) {
         return 1;
       } else {
         return 0;
