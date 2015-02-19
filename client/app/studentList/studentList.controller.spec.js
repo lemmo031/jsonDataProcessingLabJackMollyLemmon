@@ -356,4 +356,21 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.compareCredits(student1, student2)).toEqual(0);
   });
 
+  it('testing compareGPA on different grades', function(){
+    var student1 = {"GPA": 3.5};
+    var student2 = {"GPA": 3.2};
+    expect(scope.compareGPA(student1, student2)).toEqual(1);
+  });
+
+  it('testing compareGPA on different grades', function(){
+    var student1 = {"GPA": 1.4};
+    var student2 = {"GPA": 3.2};
+    expect(scope.compareGPA(student1, student2)).toEqual(-1);
+  });
+
+  it('testing compareGPA on identical', function(){
+    var student1 = {"GPA": 2.5};
+    var student2 = {"GPA": 2.5};
+    expect(scope.compareGPA(student1, student2)).toEqual(0);
+  });
 });
