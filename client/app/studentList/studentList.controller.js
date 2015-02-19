@@ -107,6 +107,13 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents.sort($scope.compareGPA);
     };
 
+    $scope.displayMajor1 = function(student) {
+      if (student.major1 == null){
+        return "UNDECIDED";
+      }
+      return student.major1;
+    };
+
     //made alphabetical standard from opening page.
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;

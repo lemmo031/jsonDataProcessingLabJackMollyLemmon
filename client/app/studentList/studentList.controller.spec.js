@@ -368,6 +368,17 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.compareGPA(student1, student2)).toEqual(0);
   });
 
+  // testing displayMajor1
+  it('testing displayMajor1 with undecided', function(){
+    var student1 = {"major1": null, "major2": null};
+    expect(scope.displayMajor1(student1)).toEqual("UNDECIDED");
+  });
+
+  it('testing displayMajor1 with English', function(){
+    var student1 = {"major1": "ENGLISH", "major2": null};
+    expect(scope.displayMajor1(student1)).toEqual("ENGLISH");
+  });
+
   // Testing compareMajors
 
 
