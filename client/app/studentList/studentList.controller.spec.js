@@ -349,6 +349,9 @@ describe('Testing controller: StudentListCtrl', function(){
     var student2 = {"completedCreditsForList": 20};
     expect(scope.compareCredits(student1, student2)).toEqual(1);
   });
+
+  // Testing compareGPA
+
   it('testing compareGPA on different grades', function(){
     var student1 = {"gpa": 3.5};
     var student2 = {"gpa": 3.2};
@@ -364,6 +367,10 @@ describe('Testing controller: StudentListCtrl', function(){
     var student2 = {"gpa": 2.5};
     expect(scope.compareGPA(student1, student2)).toEqual(0);
   });
+
+  // Testing compareMajors
+
+
   //it('testing compareMajors', function(){
   //  var student1 = {"major1": "ENGLISH", "major2": null};
   //  var student2 = {"major1": "MATH", "major2": null};
