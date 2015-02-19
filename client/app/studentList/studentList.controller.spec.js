@@ -350,4 +350,10 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.compareCredits(student1, student2)).toEqual(1);
   });
 
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": null};
+    var student2 = {"major1": "ENGLISH", "major2": null};
+    expect(scope.compareCredits(student1, student2)).toEqual(0);
+  });
+
 });
