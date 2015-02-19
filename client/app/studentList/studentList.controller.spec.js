@@ -350,27 +350,57 @@ describe('Testing controller: StudentListCtrl', function(){
     expect(scope.compareCredits(student1, student2)).toEqual(1);
   });
 
-  it('testing compareMajors', function(){
-    var student1 = {"major1": "ENGLISH", "major2": null};
-    var student2 = {"major1": "ENGLISH", "major2": null};
-    expect(scope.compareCredits(student1, student2)).toEqual(0);
-  });
-
-  it('testing compareGPA on different grades', function(){
-    var student1 = {"GPA": 3.5};
-    var student2 = {"GPA": 3.2};
-    expect(scope.compareGPA(student1, student2)).toEqual(1);
-  });
-
-  it('testing compareGPA on different grades', function(){
-    var student1 = {"GPA": 1.4};
-    var student2 = {"GPA": 3.2};
-    expect(scope.compareGPA(student1, student2)).toEqual(-1);
-  });
-
-  it('testing compareGPA on identical', function(){
-    var student1 = {"GPA": 2.5};
-    var student2 = {"GPA": 2.5};
-    expect(scope.compareGPA(student1, student2)).toEqual(0);
-  });
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ENGLISH", "major2": null};
+  //  var student2 = {"major1": "MATH", "major2": null};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ZEN", "major2": null};
+  //  var student2 = {"major1": "MATH", "major2": null};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": null, "major2": null};
+  //  var student2 = {"major1": "MATH", "major2": null};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(-1); //Maybe?
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "MATH", "major2": null};
+  //  var student2 = {"major1": null, "major2": null};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(1); //Maybe?
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ENGLISH", "major2": null};
+  //  var student2 = {"major1": "ENGLISH", "major2": null};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(0);
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ENGLISH", "major2": "MATH"};
+  //  var student2 = {"major1": "ENGLISH", "major2": "ZEN"};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ENGLISH", "major2": "ZEN"};
+  //  var student2 = {"major1": "ENGLISH", "major2": "MATH"};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ENGLISH", "major2": null};
+  //  var student2 = {"major1": "ENGLISH", "major2": "ZEN"};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  //});
+  //
+  //it('testing compareMajors', function(){
+  //  var student1 = {"major1": "ENGLISH", "major2": "MATH"};
+  //  var student2 = {"major1": "ENGLISH", "major2": null};
+  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
+  //});
 });
