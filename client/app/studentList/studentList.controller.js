@@ -16,18 +16,25 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     //function for changing our unique student
     $scope.changeUnique = function(student){
-      console.log("we're here!")
+      console.log("we're here!");
       $scope.ourUniqueStudent = student;
-    }
+    };
+
+    //function for displaying courses correctly
+    $scope.coursesInDisplay = function(){
+      for (var i = 0; i < ourUniqueStudent.courses.length; i++){
+
+      }
+    };
 
     //counting credits different ways
     $scope.notInProgress = function(grade) {
       return grade != "IP";
-    }
+    };
 
     $scope.isSuccessfullyCompleted = function(grade) {
       return grade != "F" && grade != "IP";
-    }
+    };
 
     $scope.countCredits = function(student, testingFunction) {
       var totalCredits = 0;
@@ -174,7 +181,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       } else {
         return 0;
       }
-    }
+    };
 
     $scope.compareMajors = function(student1, student2) {
       var major1Comparison = $scope.compareStrings(student1.major1, student2.major1);
@@ -192,7 +199,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       } else {
         return string1.localeCompare(string2);
       }
-    }
+    };
 
     $scope.compareCredits = function(student1, student2) {
       var student1Credits = student1.completedCreditsForList;
@@ -204,7 +211,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       } else {
         return 0;
       }
-    }
+    };
 
     $scope.compareGPA = function(student1, student2) {
       var student1GPA = student1.gpa;
@@ -216,7 +223,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       } else {
         return 0;
       }
-    }
+    };
 
     $scope.getCreditYear = function(successfulCredits) {
       if (successfulCredits < 0) {
@@ -230,13 +237,13 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       } else if (90 <= successfulCredits) {
         return "senior";
       }
-    }
+    };
 
     $scope.addInformation = function(student) {
       student.gpa = $scope.GPACalc(student);
       student.completedCreditsForList = $scope.successfullyCompletedCredits(student);
       student.creditYear = $scope.getCreditYear(student.completedCreditsForList);
-    }
+    };
 
     $scope.addAllInformation = function() {
       for (var i = 0; i < $scope.awesomeStudents.length; i++){
