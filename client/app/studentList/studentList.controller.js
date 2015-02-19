@@ -97,6 +97,11 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents.sort($scope.compareDateOfBirth);
     };
 
+    //$scope.sortCredits = function() {
+    //  console.log("Sorting by credits.");
+    //  $scope.awesomeStudents.sort($scope.compareDateOfBirth);
+    //};
+
     //made alphabetical standard from opening page.
     $http.get('/api/students').success(function(awesomeStudents) {
       $scope.awesomeStudents = awesomeStudents;
@@ -160,7 +165,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     $scope.addInformation = function(student) {
       student.gpa = $scope.GPACalc(student);
       student.completedCreditsForList = $scope.successfullyCompletedCredits(student);
-      student.creditYear = $scope.getCreditYear(student.successfullyCompletedCredits);
+      student.creditYear = $scope.getCreditYear(student.completedCreditsForList);
     }
 
     $scope.addAllInformation = function() {

@@ -329,7 +329,25 @@ describe('Testing controller: StudentListCtrl', function(){
 
     expect(student.creditYear).toEqual("freshman");
     expect(student.gpa).toEqual(2.0);
-    expect(student.successfullyCompletedCredits).toEqual(10);
+    expect(student.completedCreditsForList).toEqual(10);
   });
+
+  //it('testing compareCredits on identical credits', function(){
+  //  var student1 = {"completedCreditsForList": 20};
+  //  var student2 = {"completedCreditsForList": 20};
+  //  expect(scope.compareCredits(student1, student2)).toEqual(0);
+  //});
+  //
+  //it('testing compareCredits on different credits', function(){
+  //  var student1 = {"completedCreditsForList": 15};
+  //  var student2 = {"completedCreditsForList": 20};
+  //  expect(scope.compareCredits(student1, student2)).toEqual(-1);
+  //});
+  //
+  //it('testing compareCredits on different credits', function(){
+  //  var student1 = {"completedCreditsForList": 27};
+  //  var student2 = {"completedCreditsForList": 20};
+  //  expect(scope.compareCredits(student1, student2)).toEqual(1);
+  //});
 
 });
