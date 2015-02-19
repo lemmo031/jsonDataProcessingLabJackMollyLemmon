@@ -99,7 +99,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.sortCredits = function() {
       console.log("Sorting by credits.");
-      $scope.awesomeStudents.sort($scope.compareDateOfBirth);
+      $scope.awesomeStudents.sort($scope.compareCredits);
     };
 
     //made alphabetical standard from opening page.
