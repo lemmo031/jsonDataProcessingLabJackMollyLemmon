@@ -59,7 +59,7 @@ Student.find({}).remove(function() {
             "name": "Data Structures",
             "subject": "CSCI",
             "courseNumber": 2101,
-            "c)redits": 5
+            "credits": 5
           },
           "grade": "A"
         },

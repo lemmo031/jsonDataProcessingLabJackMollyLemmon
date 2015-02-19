@@ -22,12 +22,17 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.countCredits = function(student, testingFunction) {
       var totalCredits = 0;
+      console.log(student.firstName);
+      console.log(student.courses.length);
       for (var i = 0; i < student.courses.length; i++){
         var currentCourse = student.courses[i];
+        console.log(currentCourse.course.credits);
         if (testingFunction(currentCourse.grade)) {
           totalCredits += currentCourse.course.credits;
+          //console.log(currentCourse.course.credits);
         }
       }
+      //console.log(totalCredits);
       return totalCredits;
     };
 
