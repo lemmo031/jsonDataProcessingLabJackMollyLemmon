@@ -22,11 +22,8 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.countCredits = function(student, testingFunction) {
       var totalCredits = 0;
-      console.log(student.firstName);
-      console.log(student.courses.length);
       for (var i = 0; i < student.courses.length; i++){
         var currentCourse = student.courses[i];
-        console.log(currentCourse.course.credits);
         if (testingFunction(currentCourse.grade)) {
           totalCredits += currentCourse.course.credits;
         }
@@ -115,7 +112,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents = awesomeStudents;
       $scope.addAllInformation();
       $scope.sortName();
-      console.log("Hello There");
+      console.log("Getting information from database.");
       socket.syncUpdates('student', $scope.awesomeStudents);
     });
 
@@ -204,6 +201,6 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       for (var i = 0; i < $scope.awesomeStudents.length; i++){
         $scope.addInformation($scope.awesomeStudents[i]);
       }
-      console.log("we added probably.")
+      console.log("Updating student information.")
     }
   });
