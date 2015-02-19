@@ -29,10 +29,8 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         console.log(currentCourse.course.credits);
         if (testingFunction(currentCourse.grade)) {
           totalCredits += currentCourse.course.credits;
-          //console.log(currentCourse.course.credits);
         }
       }
-      //console.log(totalCredits);
       return totalCredits;
     };
 
@@ -55,7 +53,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
           var thisGradeNumber = $scope.convertToGradeNumber(student.courses[i].grade);
           var theseCredits = student.courses[i].course.credits;
           var addedGradePoint = (thisGradeNumber * theseCredits);
-          totalGradePoint = totalGradePoint + addedGradePoint;
+          totalGradePoint += addedGradePoint;
         }
       }
       gpa = totalGradePoint / totalCredits;
@@ -93,12 +91,12 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     //sorting calls
     $scope.sortName = function() {
-      console.log("wut up.");
+      console.log("Sorting by name.");
       $scope.awesomeStudents.sort($scope.compareName);
     };
 
     $scope.sortBirth = function() {
-      console.log("up wut?");
+      console.log("Sorting by date of birth.");
       $scope.awesomeStudents.sort($scope.compareDateOfBirth);
     };
 
