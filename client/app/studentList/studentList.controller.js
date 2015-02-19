@@ -97,10 +97,10 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents.sort($scope.compareDateOfBirth);
     };
 
-    //$scope.sortCredits = function() {
-    //  console.log("Sorting by credits.");
-    //  $scope.awesomeStudents.sort($scope.compareDateOfBirth);
-    //};
+    $scope.sortCredits = function() {
+      console.log("Sorting by credits.");
+      $scope.awesomeStudents.sort($scope.compareDateOfBirth);
+    };
 
     //made alphabetical standard from opening page.
     $http.get('/api/students').success(function(awesomeStudents) {
@@ -142,6 +142,18 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       if (student1DateOfBirth < student2DateOfBirth) {
         return -1;
       } else if (student1DateOfBirth > student2DateOfBirth) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+
+    $scope.compareCredits = function(student1, student2) {
+      var student1Credits = student1.completedCreditsForList;
+      var student2Credits = student2.completedCreditsForList;
+      if (student1Credits < student2Credits) {
+        return -1;
+      } else if (student1Credits > student2Credits) {
         return 1;
       } else {
         return 0;
