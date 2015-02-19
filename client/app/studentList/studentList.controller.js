@@ -168,22 +168,22 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
     }
 
     $scope.compareMajors = function(student1, student2) {
-      if (student1.major1 == null && student2.major1 == null) {
-        return 0;
-      } else if (student1.major1 == null && student2.major1 != null) {
-        return 1;
+      var major1Comparison = $scope.compareStrings(student1.major1, student2.major1);
+      if (major1Comparison == 0) {
+        return $scope.compareStrings(student1.major2, student2.major2);
       }
-      var majorComparison = student1.major1.localeCompare(student2.major1);
-      if (majorComparison == 0) {
-        if (student1.major2 == null && student2.major2 == null) {
-          return 0;
-        } else if (student1.major2 == null && student2.major2 != null) {
-          return 1;
-        }
-        return student1.major2.localeCompare(student2.major2);
-      }
-      return majorComparison;
+      return major1Comparison;
     };
+
+    $scope.compareStrings = function(string1, string2) {
+      if (string1 == null && string2 == null) {
+        return 0;
+      } else if (string1 == null && string2 != null) {
+        return 1;
+      } else {
+        return string1.localeCompare(string2);
+      }
+    }
 
     $scope.compareCredits = function(student1, student2) {
       var student1Credits = student1.completedCreditsForList;
@@ -234,6 +234,5 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         $scope.addInformation($scope.awesomeStudents[i]);
       }
       console.log("Updating student information.");
-      console.log("Henry".localeCompare(null));
     }
   });
