@@ -393,57 +393,57 @@ describe('Testing controller: StudentListCtrl', function(){
   // Testing compareMajors
 
 
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ENGLISH", "major2": null};
-  //  var student2 = {"major1": "MATH", "major2": null};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ZEN", "major2": null};
-  //  var student2 = {"major1": "MATH", "major2": null};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": null, "major2": null};
-  //  var student2 = {"major1": "MATH", "major2": null};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(-1); //Maybe?
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "MATH", "major2": null};
-  //  var student2 = {"major1": null, "major2": null};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(1); //Maybe?
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ENGLISH", "major2": null};
-  //  var student2 = {"major1": "ENGLISH", "major2": null};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(0);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ENGLISH", "major2": "MATH"};
-  //  var student2 = {"major1": "ENGLISH", "major2": "ZEN"};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ENGLISH", "major2": "ZEN"};
-  //  var student2 = {"major1": "ENGLISH", "major2": "MATH"};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ENGLISH", "major2": null};
-  //  var student2 = {"major1": "ENGLISH", "major2": "ZEN"};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(-1);
-  //});
-  //
-  //it('testing compareMajors', function(){
-  //  var student1 = {"major1": "ENGLISH", "major2": "MATH"};
-  //  var student2 = {"major1": "ENGLISH", "major2": null};
-  //  expect(scope.compareMajors(student1, student2)).toEqual(1);
-  //});
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": null};
+    var student2 = {"major1": "MATH", "major2": null};
+    expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ZEN", "major2": null};
+    var student2 = {"major1": "MATH", "major2": null};
+    expect(scope.compareMajors(student1, student2)).toEqual(1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": null, "major2": null};
+    var student2 = {"major1": "MATH", "major2": null};
+    expect(scope.compareMajors(student1, student2)).toEqual(1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "MATH", "major2": null};
+    var student2 = {"major1": null, "major2": null};
+    expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": null};
+    var student2 = {"major1": "ENGLISH", "major2": null};
+    expect(scope.compareMajors(student1, student2)).toEqual(0);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": "MATH"};
+    var student2 = {"major1": "ENGLISH", "major2": "ZEN"};
+    expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": "ZEN"};
+    var student2 = {"major1": "ENGLISH", "major2": "MATH"};
+    expect(scope.compareMajors(student1, student2)).toEqual(1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": null};
+    var student2 = {"major1": "ENGLISH", "major2": "ZEN"};
+    expect(scope.compareMajors(student1, student2)).toEqual(1);
+  });
+
+  it('testing compareMajors', function(){
+    var student1 = {"major1": "ENGLISH", "major2": "MATH"};
+    var student2 = {"major1": "ENGLISH", "major2": null};
+    expect(scope.compareMajors(student1, student2)).toEqual(-1);
+  });
 });
