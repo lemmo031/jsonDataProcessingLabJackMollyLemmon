@@ -11,6 +11,14 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     $scope.awesomeStudents = [];
 
+    //unique student for detailed information.
+    $scope.ourUniqueStudent = $scope.awesomeStudents[0];
+
+    //function for changing our unique student
+    $scope.changeUnique = function(student){
+      $scope.ourUniqueStudent = student;
+    }
+
     //counting credits different ways
     $scope.notInProgress = function(grade) {
       return grade != "IP";
