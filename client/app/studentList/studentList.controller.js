@@ -126,6 +126,11 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       $scope.awesomeStudents.sort($scope.compareGPA);
     };
 
+    $scope.sortMajor = function() {
+      console.log("Sorting by major.");
+      $scope.awesomeStudents.sort($scope.compareMajors);
+    };
+
     $scope.displayMajor1 = function(student) {
       if (student.major1 == null){
         return "UNDECIDED";
@@ -167,9 +172,9 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     //comparisons for sorts
     $scope.compareName = function(student1, student2) {
-      var lastNameComparison = student1.lastName.localeCompare(student2.lastName);
+      var lastNameComparison = $scope.compareStrings(student1.lastName, student2.lastName);
       if (lastNameComparison == 0) {
-        return student1.firstName.localeCompare(student2.firstName);
+        return $scope.compareStrings(student1.firstName, student2.firstName);
       }
       return lastNameComparison;
     };
@@ -199,8 +204,14 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
         return 0;
       } else if (string1 == null && string2 != null) {
         return 1;
+      } else if (string1 != null && string2 == null){
+        return -1;
+      } else if (string1 < string2) {
+        return -1;
+      } else if (string1 > string2) {
+        return 1;
       } else {
-        return string1.localeCompare(string2);
+        return 0;
       }
     };
 
