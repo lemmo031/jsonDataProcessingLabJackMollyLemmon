@@ -446,4 +446,30 @@ describe('Testing controller: StudentListCtrl', function(){
     var student2 = {"major1": "ENGLISH", "major2": null};
     expect(scope.compareMajors(student1, student2)).toEqual(-1);
   });
+
+  // Testing compareStrings
+  it('testing compareStrings', function(){
+    expect(scope.compareStrings("ART", "ART")).toEqual(0);
+  });
+
+  it('testing compareStrings', function(){
+    expect(scope.compareStrings("ART", "MUSIC")).toEqual(-1);
+  });
+
+  it('testing compareStrings', function(){
+    expect(scope.compareStrings("MUSIC", "ART")).toEqual(1);
+  });
+
+  it('testing compareStrings', function(){
+    expect(scope.compareStrings("ZOE", null)).toEqual(-1);
+  });
+
+  it('testing compareStrings', function(){
+    expect(scope.compareStrings(null, "ZOE")).toEqual(1);
+  });
+
+  it('testing compareStrings', function(){
+    expect(scope.compareStrings(null, null)).toEqual(0);
+  });
+
 });
