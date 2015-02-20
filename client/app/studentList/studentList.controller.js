@@ -16,18 +16,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     //function for changing our unique student
     $scope.changeUnique = function(student){
-      console.log("we're here!");
       $scope.ourUniqueStudent = student;
-    };
-
-    //function for displaying courses correctly
-    $scope.coursesInDisplay = function(){
-      console.log("huehuehue")
-      var coursesString = "";
-      for (var i = 0; i < $scope.ourUniqueStudent.courses.length; i++){
-        coursesString = coursesString + " " + $scope.ourUniqueStudent.courses[i] + ", ";
-      }
-      return coursesString;
     };
 
     //counting credits different ways
