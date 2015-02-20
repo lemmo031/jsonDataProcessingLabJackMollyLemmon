@@ -6,9 +6,7 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
       {'title': 'Home',
       'link': '/'},
       {'title': 'Students',
-      'link': '/studentList'},
-      {'title': 'StudentDetails',
-        'link': '/studentDetails'}];
+      'link': '/studentList'}];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

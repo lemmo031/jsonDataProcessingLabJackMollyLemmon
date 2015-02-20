@@ -18,14 +18,6 @@
   <input type="button" value="Sort by Credits" ng-click="sortCredits()"/>
   <input type="button" value="Sort by GPA" ng-click="sortGPA()"/>
   <li class="list-group-item" ng-repeat="student in awesomeStudents">Name: {{student.lastName}}, {{student.firstName}}. Date of Birth: {{student.dateOfBirth}}. GPA: {{student.gpa}}. Credits completed: {{student.completedCreditsForList}}. Major 1: {{displayMajor1(student)}}. {{displayMajor2(student)}} Year: {{student.creditYear}}<button type="button" ng-click="changeUnique(student)">details</button></li>
-  <!--<div class="row">-->
-    <!--<div class="col-lg-12">-->
-      <!--<h1 class="page-header">Students:</h1>-->
-      <!--<ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in awesomeStudents">-->
-        <!--<li class="list-group-item"><a href="#">{{student.lastName}}, {{student.firstName}}</a></li>&ndash;&gt;-->
-      <!--</ul>-->
-    <!--</div>-->
-  <!--</div>-->
   <h2>Student Details:</h2>
 </div>
 

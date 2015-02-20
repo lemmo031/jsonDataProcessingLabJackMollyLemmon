@@ -22,9 +22,12 @@ angular.module('jsonDataProcessingLabJackMollyLemmonApp')
 
     //function for displaying courses correctly
     $scope.coursesInDisplay = function(){
-      for (var i = 0; i < ourUniqueStudent.courses.length; i++){
-
+      console.log("huehuehue")
+      var coursesString = "";
+      for (var i = 0; i < $scope.ourUniqueStudent.courses.length; i++){
+        coursesString = coursesString + " " + $scope.ourUniqueStudent.courses[i] + ", ";
       }
+      return coursesString;
     };
 
     //counting credits different ways
